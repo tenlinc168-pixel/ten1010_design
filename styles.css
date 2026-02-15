@@ -443,6 +443,10 @@ footer {
         padding: 1.5rem;
     }
 
+    .hero-bg {
+        background-position: 80% center;
+    }
+
     .logo {
         font-size: 1.5rem;
     }
