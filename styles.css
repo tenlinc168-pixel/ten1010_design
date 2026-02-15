@@ -45,15 +45,17 @@ body {
 }
 
 .cursor-dot {
-    width: 5px;
-    height: 5px;
-    background-color: var(--primary-color);
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    mix-blend-mode: difference;
 }
 
 .cursor-outline {
     width: 30px;
     height: 30px;
-    border: 1px solid var(--primary-color);
+    border: 1px solid white;
+    mix-blend-mode: difference;
     transition: width 0.2s, height 0.2s, background-color 0.2s;
 }
 
