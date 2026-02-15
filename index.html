@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>凌澄 | Vintage · Furniture · Living</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Cursor Follower -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">凌澄</div>
+        <ul class="nav-links">
+            <li><a href="#home">首頁</a></li>
+            <li><a href="#about">關於我們</a></li>
+            <li><a href="#collection">精選系列</a></li>
+            <li><a href="#visit">探訪</a></li>
+        </ul>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <span class="subtitle">Vintage · Furniture · Living</span>
+            <h1 class="fade-in-up">時光裡的溫度</h1>
+            <p class="fade-in-up delay-1">讓每一個角落，都訴說著歲月的故事。</p>
+            <a href="#collection" class="btn fade-in-up delay-2">探索系列</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image reveal">
+                    <img src="assets/images/chair.png" alt="Vintage Chair">
+                </div>
+                <div class="about-text reveal">
+                    <h2>以物，惜物</h2>
+                    <p>在凌澄，我們相信每一件老家具都有靈魂。它們見證了時光的流逝，承載著過往的溫度。</p>
+                    <p>我們蒐羅來自世界各地的經典設計，經過細心修復，讓這些被遺忘的美好，重新回到現代生活中。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collection Section -->
+    <section id="collection" class="collection">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>精選系列</h2>
+                <p>Curated Collection</p>
+            </div>
+            <div class="collection-grid">
+                <div class="collection-item reveal">
+                    <div class="item-image">
+                        <img src="assets/images/chair.png" alt="Seating">
+                    </div>
+                    <div class="item-info">
+                        <h3>座椅系列</h3>
+                        <span>Seating</span>
+                    </div>
+                </div>
+                <div class="collection-item reveal delay-1">
+                    <div class="item-image">
+                        <img src="assets/images/lamp.png" alt="Lighting">
+                    </div>
+                    <div class="item-info">
+                        <h3>燈具照明</h3>
+                        <span>Lighting</span>
+                    </div>
+                </div>
+                <div class="collection-item reveal delay-2">
+                    <div class="item-image">
+                        <!-- Reusing hero image cropped for decor/ambient -->
+                        <img src="assets/images/hero.png" alt="Decor" style="object-position: right;">
+                    </div>
+                    <div class="item-info">
+                        <h3>生活選物</h3>
+                        <span>Decor & Living</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visit Section -->
+    <section id="visit" class="visit">
+        <div class="container reveal">
+            <div class="visit-content">
+                <h2>探訪空間</h2>
+                <p>這裡不只是一間家具店，更是一個讓心靈沉澱的空間。
+                    <br>歡迎來喝杯咖啡，感受老物的魅力。
+                </p>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <span class="label">Address</span>
+                        <p>台北市南港區南港路一段171巷9號</p>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Hours</span>
+                        <p></p>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Social</span>
+                        <a href="https://www.instagram.com/ten1010.c" target="_blank" class="social-link">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="map-container reveal delay-2">
+                <iframe src="https://maps.google.com/maps?q=台北市南港區南港路一段171巷9號&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 凌澄 Ten1010.c. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
