@@ -72,7 +72,7 @@ body:hover .cursor-outline {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(244, 241, 234, 0.9);
+    background: transparent;
     backdrop-filter: blur(10px);
     z-index: 1000;
     transition: padding 0.3s ease;
@@ -83,12 +83,25 @@ body:hover .cursor-outline {
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
 }
 
+.navbar.scrolled .logo {
+    color: var(--primary-color);
+}
+
+.navbar.scrolled .nav-links a {
+    color: var(--primary-color);
+}
+
+.navbar.scrolled .nav-links a::after {
+    background-color: var(--primary-color);
+}
+
 .logo {
     font-family: var(--font-heading);
     font-size: 1.8rem;
     font-weight: 700;
     letter-spacing: 2px;
-    color: var(--primary-color);
+    color: var(--bg-color);
+    transition: color 0.3s ease;
 }
 
 .nav-links {
@@ -99,7 +112,7 @@ body:hover .cursor-outline {
 
 .nav-links a {
     text-decoration: none;
-    color: var(--primary-color);
+    color: var(--bg-color);
     font-weight: 500;
     font-size: 0.9rem;
     text-transform: uppercase;
@@ -115,7 +128,7 @@ body:hover .cursor-outline {
     height: 1px;
     bottom: -5px;
     left: 0;
-    background-color: var(--primary-color);
+    background-color: var(--bg-color);
     transition: width 0.3s ease;
 }
 
