@@ -85,6 +85,7 @@ function renderProducts(products, filterCategory) {
             </div>
             <div class="product-info">
                 <h3>${product.Name}</h3>
+                ${product.Size ? `<span class="product-size">${product.Size}</span>` : ''}
                 <p class="price">${product.Price}</p>
             </div>
         `;
