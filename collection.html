@@ -43,67 +43,8 @@
             <p id="category-subtitle">Curated Collection</p>
         </div>
 
-        <div class="product-grid">
-            <!-- Item 1 -->
-            <div class="product-item reveal active">
-                <div class="product-image">
-                    <img src="assets/images/chair.png" alt="Product">
-                </div>
-                <div class="product-info">
-                    <h3>經典實木單椅</h3>
-                    <p class="price">NT$ 12,800</p>
-                </div>
-            </div>
-            <!-- Item 2 -->
-            <div class="product-item reveal active">
-                <div class="product-image">
-                    <img src="assets/images/lamp.png" alt="Product">
-                </div>
-                <div class="product-info">
-                    <h3>復古黃銅桌燈</h3>
-                    <p class="price">NT$ 5,600</p>
-                </div>
-            </div>
-            <!-- Item 3 -->
-            <div class="product-item reveal active">
-                <div class="product-image">
-                    <img src="assets/images/chair.png" alt="Product" style="filter: sepia(30%);">
-                </div>
-                <div class="product-info">
-                    <h3>北歐風柚木扶手椅</h3>
-                    <p class="price">NT$ 18,500</p>
-                </div>
-            </div>
-            <!-- Item 4 -->
-            <div class="product-item reveal active">
-                <div class="product-image">
-                    <img src="assets/images/IMG_9271.JPG" alt="Product">
-                </div>
-                <div class="product-info">
-                    <h3>古董陶製花瓶</h3>
-                    <p class="price">NT$ 3,200</p>
-                </div>
-            </div>
-            <!-- Item 5 -->
-            <div class="product-item reveal active">
-                <div class="product-image">
-                    <img src="assets/images/chair.png" alt="Product" style="filter: brightness(0.8);">
-                </div>
-                <div class="product-info">
-                    <h3>極簡梣木板凳</h3>
-                    <p class="price">NT$ 8,900</p>
-                </div>
-            </div>
-            <!-- Item 6 -->
-            <div class="product-item reveal active">
-                <div class="product-image">
-                    <img src="assets/images/lamp.png" alt="Product" style="filter: hue-rotate(45deg);">
-                </div>
-                <div class="product-info">
-                    <h3>工業風懸吊燈具</h3>
-                    <p class="price">NT$ 7,400</p>
-                </div>
-            </div>
+        <div class="product-grid" id="product-grid">
+            <!-- Products will be rendered here by inventory.js -->
         </div>
     </div>
 
@@ -115,22 +56,7 @@
     </footer>
 
     <script src="script.js"></script>
-    <script>
-        // Simple client-side category handling (optional but nice)
-        window.addEventListener('DOMContentLoaded', () => {
-            const params = new URLSearchParams(window.location.search);
-            const category = params.get('cat');
-            const titleMap = {
-                'furniture': '柚木/實木傢俱',
-                'chair': '單椅',
-                'vintage': '古物選品'
-            };
-            if (category && titleMap[category]) {
-                document.getElementById('category-title').textContent = titleMap[category];
-                document.getElementById('category-subtitle').textContent = category.charAt(0).toUpperCase() + category.slice(1);
-            }
-        });
-    </script>
+    <script src="inventory.js"></script>
 </body>
 
 </html>
