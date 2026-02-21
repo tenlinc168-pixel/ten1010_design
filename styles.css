@@ -484,7 +484,15 @@ footer {
 
     .nav-links {
         display: none;
-        /* Mobile menu implementation usually requires JS toggle */
+    }
+
+    .collection-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .collection-item {
+        margin-bottom: 2rem;
     }
 
     .hero h1 {
@@ -580,10 +588,17 @@ footer {
 
 @media (max-width: 600px) {
     .product-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem 1rem;
     }
 
     .product-image {
-        height: 350px;
+        height: 200px;
+        /* Reduced height for 2-column mobile layout */
+        margin-bottom: 1rem;
+    }
+
+    .product-info h3 {
+        font-size: 1rem;
     }
 }
