@@ -97,6 +97,16 @@ body:hover .cursor-outline {
     background-color: var(--primary-color);
 }
 
+.info-item p {
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+.info-item p small {
+    font-size: 0.85rem;
+    color: #999;
+}
+
 .logo {
     font-family: var(--font-heading);
     font-size: 1.8rem;
