@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>精選系列 | 凌澄</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=1.1">
+</head>
+
+<body class="collection-page">
+    <!-- Cursor Follower -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+        <div class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">凌澄</a></div>
+        <ul class="nav-links">
+            <li><a href="index.html#home">首頁</a></li>
+            <li><a href="index.html#about">關於我們</a></li>
+            <li><a href="index.html#collection">精選系列</a></li>
+            <li><a href="index.html#visit">探訪</a></li>
+        </ul>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="index.html#collection" class="back-link">
+            <i>←</i> 返回精選系列
+        </a>
+
+        <div class="section-header reveal active">
+            <h2 id="category-title">精選系列</h2>
+            <p id="category-subtitle">Curated Collection</p>
+        </div>
+
+        <div class="product-grid">
+            <!-- Item 1 -->
+            <div class="product-item reveal active">
+                <div class="product-image">
+                    <img src="assets/images/chair.png" alt="Product">
+                </div>
+                <div class="product-info">
+                    <h3>經典實木單椅</h3>
+                    <p class="price">NT$ 12,800</p>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="product-item reveal active">
+                <div class="product-image">
+                    <img src="assets/images/lamp.png" alt="Product">
+                </div>
+                <div class="product-info">
+                    <h3>復古黃銅桌燈</h3>
+                    <p class="price">NT$ 5,600</p>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="product-item reveal active">
+                <div class="product-image">
+                    <img src="assets/images/chair.png" alt="Product" style="filter: sepia(30%);">
+                </div>
+                <div class="product-info">
+                    <h3>北歐風柚木扶手椅</h3>
+                    <p class="price">NT$ 18,500</p>
+                </div>
+            </div>
+            <!-- Item 4 -->
+            <div class="product-item reveal active">
+                <div class="product-image">
+                    <img src="assets/images/IMG_9271.JPG" alt="Product">
+                </div>
+                <div class="product-info">
+                    <h3>古董陶製花瓶</h3>
+                    <p class="price">NT$ 3,200</p>
+                </div>
+            </div>
+            <!-- Item 5 -->
+            <div class="product-item reveal active">
+                <div class="product-image">
+                    <img src="assets/images/chair.png" alt="Product" style="filter: brightness(0.8);">
+                </div>
+                <div class="product-info">
+                    <h3>極簡梣木板凳</h3>
+                    <p class="price">NT$ 8,900</p>
+                </div>
+            </div>
+            <!-- Item 6 -->
+            <div class="product-item reveal active">
+                <div class="product-image">
+                    <img src="assets/images/lamp.png" alt="Product" style="filter: hue-rotate(45deg);">
+                </div>
+                <div class="product-info">
+                    <h3>工業風懸吊燈具</h3>
+                    <p class="price">NT$ 7,400</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="margin-top: 8rem;">
+        <div class="container">
+            <p>&copy; 2025 凌澄 LinC All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Simple client-side category handling (optional but nice)
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const category = params.get('cat');
+            const titleMap = {
+                'furniture': '柚木/實木傢俱',
+                'chair': '單椅',
+                'vintage': '古物選品'
+            };
+            if (category && titleMap[category]) {
+                document.getElementById('category-title').textContent = titleMap[category];
+                document.getElementById('category-subtitle').textContent = category.charAt(0).toUpperCase() + category.slice(1);
+            }
+        });
+    </script>
+</body>
+
+</html>
