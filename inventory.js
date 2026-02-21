@@ -40,14 +40,19 @@ function renderProducts(products, filterCategory) {
     grid.innerHTML = ''; // Clear existing items
 
     // Category normalization mapping
+    // Note: These are mapped to the logical "cat" IDs in index.html
     const categoryMap = {
-        'lighting/decor': 'vintage',
+        '單椅': 'furniture',
+        'chair': 'furniture',
+        '家具': 'chair',
+        '傢俱': 'chair',
+        'furniture': 'chair',
+        '燈飾': 'vintage',
+        '飾品': 'vintage',
         'lighting': 'vintage',
         'decor': 'vintage',
-        '古物選品': 'vintage',
-        '單椅': 'chair',
-        '家具': 'furniture',
-        '傢俱': 'furniture'
+        'lighting/decor': 'vintage',
+        '古物': 'vintage'
     };
 
     const filtered = products.filter(p => {
@@ -94,9 +99,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Update titles
     const titleMap = {
-        'furniture': '柚木/實木傢俱',
-        'chair': '單椅',
-        'vintage': '古物選品'
+        'furniture': '單椅',
+        'chair': '柚木/實木傢俱',
+        'vintage': '燈飾/飾品'
+    };
+
+    const subtitleMap = {
+        'furniture': 'Chair',
+        'chair': 'Furniture',
+        'vintage': 'Lighting/Decor'
     };
 
     const titleEl = document.getElementById('category-title');
@@ -105,8 +116,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (titleEl && titleMap[category]) {
         titleEl.textContent = titleMap[category];
     }
-    if (subtitleEl) {
-        subtitleEl.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+    if (subtitleEl && subtitleMap[category]) {
+        subtitleEl.textContent = subtitleMap[category];
     }
 
     // Fetch and Render
