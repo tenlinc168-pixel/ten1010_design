@@ -7,7 +7,9 @@ const GOOGLE_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR
 
 async function fetchInventory() {
     try {
-        const response = await fetch(GOOGLE_SHEET_CSV_URL);
+        // Add cache-busting timestamp to the URL
+        const cacheBuster = `&t=${new Date().getTime()}`;
+        const response = await fetch(GOOGLE_SHEET_CSV_URL + cacheBuster);
         if (!response.ok) throw new Error('Failed to fetch inventory data');
         const csvText = await response.text();
         return parseCSV(csvText);
@@ -18,7 +20,7 @@ async function fetchInventory() {
 }
 
 function parseCSV(csvText) {
-    const lines = csvText.split('\n');
+    const lines = csvText.split('\n').filter(line => line.trim() !== '');
     const headers = lines[0].split(',').map(h => h.trim());
 
     return lines.slice(1).map(line => {
@@ -37,7 +39,23 @@ function renderProducts(products, filterCategory) {
 
     grid.innerHTML = ''; // Clear existing items
 
-    const filtered = products.filter(p => p.Category.toLowerCase() === filterCategory.toLowerCase());
+    // Category normalization mapping
+    const categoryMap = {
+        'lighting/decor': 'vintage',
+        'lighting': 'vintage',
+        'decor': 'vintage',
+        '古物選品': 'vintage',
+        '單椅': 'chair',
+        '家具': 'furniture',
+        '傢俱': 'furniture'
+    };
+
+    const filtered = products.filter(p => {
+        if (!p.Category) return false;
+        const normalizedInSheet = p.Category.trim().toLowerCase();
+        const mappedCategory = categoryMap[normalizedInSheet] || normalizedInSheet;
+        return mappedCategory === filterCategory.toLowerCase();
+    });
 
     if (filtered.length === 0) {
         grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 4rem;">目前此分類尚無商品</p>';
@@ -46,14 +64,19 @@ function renderProducts(products, filterCategory) {
 
     filtered.forEach(product => {
         const item = document.createElement('div');
-        item.className = 'product-item reveal active'; // Keep reveal active for immediate visibility or use script.js logic
+        item.className = 'product-item reveal active';
 
-        // Handle images stored locally vs external URLs
-        const imgSrc = product.ImageURL.startsWith('http') ? product.ImageURL : `assets/images/${product.ImageURL}`;
+        // Handle images: convert GitHub blob/browser URLs to raw URLs if necessary
+        let imgSrc = product.ImageURL;
+        if (imgSrc.includes('github.com') && imgSrc.includes('/blob/')) {
+            imgSrc = imgSrc.replace('github.com', 'raw.githubusercontent.com').replace('/blob/', '/');
+        } else if (!imgSrc.startsWith('http')) {
+            imgSrc = `assets/images/${imgSrc}`;
+        }
 
         item.innerHTML = `
             <div class="product-image">
-                <img src="${imgSrc}" alt="${product.Name}">
+                <img src="${imgSrc}" alt="${product.Name}" onerror="this.src='assets/images/chair.png'; this.style.opacity='0.5';">
             </div>
             <div class="product-info">
                 <h3>${product.Name}</h3>
